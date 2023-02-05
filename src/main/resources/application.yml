@@ -1,0 +1,20 @@
+server:
+  port: 8102
+spring:
+  application:
+    name: learner-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: route_one
+          uri: http://www.example.com
+          predicates:
+            - Path=/somepath
+        - id: route_two
+          uri: http://www.example2.com
+          predicates:
+            - Path=/anotherpath
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
